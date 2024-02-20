@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Homepage</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            text-align: center;
+        }
+
+        header {
+            background-color: #f2f2f2;
+            padding: 10px;
+        }
+
+        main {
+            margin: 20px 0;
+        }
+
+        footer {
+            background-color: #f2f2f2;
+            padding: 10px;
+        }
+   </style>
+   <link rel="manifest" href="manifest.json" /> 
+</head>
+<body>
+
+    <header>
+        <h1>Bienvenido a Mi Homepage PWA 1</h1>
+    </header>
+
+    <main>
+        <p>Esta es una homepage simple. Puedes personalizarla según tus necesidades.</p>
+        <p>Agrega contenido, enlaces y elementos según lo que desees mostrar en tu homepage.</p>
+        <a href="pagina1.html">Ir a página 1</a>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Mi Homepage</p>
+    </footer>
+    
+    <script>
+        if ('serviceWorker' in navigator) {
+          navigator.serviceWorker.register('service-worker.js')
+            .then((registration) => {
+              console.log('Service Worker registrado con éxito:', registration);
+            })
+            .catch((error) => {
+              console.log('Error al registrar el Service Worker:', error);
+            });
+        }
+      </script>
+    
+</body>
+</html>
