@@ -5,7 +5,8 @@ var CACHE_NAME = 'mi-pwa-cache';
 
 // Lista de archivos requeridos para la aplicación
 var urlsToCache = [
-  'index.html'
+  'index.html',
+  'pagina1.html'
 ];
 
 // Instalación del Service Worker
@@ -14,7 +15,7 @@ self.addEventListener('install', function(event) {
   event.waitUntil(
     caches.open(CACHE_NAME)
       .then(function(cache) {
-        console.log('Cache abierta ok');
+        console.log('Cache abierta con pagina1');
         return cache.addAll(urlsToCache);
       })
   );
