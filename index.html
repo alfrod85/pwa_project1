@@ -32,7 +32,48 @@
     <header>
         <h1>Bienvenido a Mi Homepage PWA 1</h1>
     </header>
+<div id="offline-banner" class="offline-banner">
+        <span>You are offline. Please check your internet connection.</span>
+        <button id="dismiss-offline-banner" class="dismiss-button">Dismiss</button>
+    </div>
 
+    <div id="connection-status-label" class="connection-status-label"></div>
+
+    <!-- Your PWA content goes here -->
+
+    <script>
+        // Function to update the connection status label
+        function updateConnectionStatusLabel() {
+            var connectionStatusLabel = document.getElementById("connection-status-label");
+            if (navigator.onLine) {
+                connectionStatusLabel.textContent = "You are online.";
+            } else {
+                connectionStatusLabel.textContent = "You are offline.";
+            }
+        }
+
+        // Function to display or hide the offline message based on online status
+        function updateOfflineStatus() {
+            var offlineBanner = document.getElementById("offline-banner");
+            if (!navigator.onLine) {
+                offlineBanner.style.display = "block";
+            } else {
+                offlineBanner.style.display = "none";
+            }
+            // Update the connection status label
+            updateConnectionStatusLabel();
+        }
+
+        // Check initial offline status and listen for changes
+        updateOfflineStatus();
+        window.addEventListener("online", updateOfflineStatus);
+        window.addEventListener("offline", updateOfflineStatus);
+
+        // Dismiss offline banner
+        document.getElementById("dismiss-offline-banner").addEventListener("click", function() {
+            document.getElementById("offline-banner").style.display = "none";
+        });
+    </script>
     <main>
         <p>Esta es una homepage simple. Puedes personalizarla según tus necesidades.</p>
         <p>Agrega contenido, enlaces y elementos según lo que desees mostrar en tu homepage.</p>
