@@ -5,8 +5,6 @@ var CACHE_NAME = 'mi-pwa-cache';
 
 // Lista de archivos requeridos para la aplicación
 var urlsToCache = [
-  '/',
-  'pagina1.html',
   'index.html'
 ];
 
